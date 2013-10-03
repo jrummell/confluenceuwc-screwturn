@@ -1,0 +1,16 @@
+Sample page for escaping things
+
+Escaping single square brackets:
+\[don't do anything]
+
+Normal link (no escape):
+[Link|Link]
+
+Backslashes in links (windows shares syntax):
+[\\path\to\file.txt]
+[alias|\\path\to\file.txt]
+
+Removing backslashes at end of line
+Because they're unnecessary.
+But leave these ones\\alone.
+
