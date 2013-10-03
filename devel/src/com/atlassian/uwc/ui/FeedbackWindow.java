@@ -287,13 +287,13 @@ public class FeedbackWindow extends SupportWindow implements FeedbackHandler, Ob
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(Observable stateObs, Object methodObj) {
-		State state;
-		Type method;
+		com.atlassian.uwc.ui.State state;
+		com.atlassian.uwc.ui.State.Type method;
 		CastProblem problem = CastProblem.NOT_STATE;
 		try {
-			state = (State) stateObs;
+			state = (com.atlassian.uwc.ui.State) stateObs;
 			problem = CastProblem.NOT_TYPE; //state cast didn't fail; let's try methodObj. Used by ClassCastException catch block 
-			method = (State.Type) methodObj;
+			method = (com.atlassian.uwc.ui.State.Type) methodObj;
 		} catch (ClassCastException e) {
 			String problemStr = (problem == CastProblem.NOT_STATE)
 					?
@@ -317,8 +317,8 @@ public class FeedbackWindow extends SupportWindow implements FeedbackHandler, Ob
 	 * @param method indicates what type of update is occurring, only NOTE updates will 
 	 * affect the textarea
 	 */
-	private void updateFeedbackTextArea(State state, Type method) {
-		if (method == State.Type.NOTE) { 
+	private void updateFeedbackTextArea(com.atlassian.uwc.ui.State state, com.atlassian.uwc.ui.State.Type method) {
+		if (method == com.atlassian.uwc.ui.State.Type.NOTE) { 
 			String text = state.getNote();
 			text = jTextFeedbackDisplay.getText() + "\n" + text;
 			this.jTextFeedbackDisplay.setText(text );
@@ -333,7 +333,7 @@ public class FeedbackWindow extends SupportWindow implements FeedbackHandler, Ob
 	 * @param method indicate what type of update is occurring.
 	 * Only step and max updates will affect the progress bar
 	 */
-	private synchronized void updateProgressBar(State state, Type method) {
+	private synchronized void updateProgressBar(com.atlassian.uwc.ui.State state, com.atlassian.uwc.ui.State.Type method) {
 		if (method == State.Type.STEP) {
 			int val = getStep(state);
 			jProgressBar.setValue(val);

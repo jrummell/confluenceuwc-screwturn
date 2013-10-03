@@ -1,0 +1,4 @@
+devel/target
+devel/src/**/*.class
+devel/src/**/.gitignore
+dist/

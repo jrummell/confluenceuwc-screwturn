@@ -477,7 +477,7 @@ public class IllegalPageNameConverterTest extends TestCase {
 	public void testDecodeUrl() {
 		String input, expected, actual;
 		//utf-4
-		input = "Detta Šr en sida med ŒŠš och €…";
+		input = "Detta Å r en sida med Å’Å Å¡ och ï¿½â‚¬â€¦";
 		expected = input;
 		try {
 			String encoded = URLEncoder.encode(input, "utf-8");
